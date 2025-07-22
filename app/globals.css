@@ -36,20 +36,49 @@ svg {
   @apply shadow-md;
 }
 
-/* Simple page transitions */
-.page-content {
-  animation: fadeIn 0.5s ease-in-out;
+/* Smooth scroll styles */
+html.has-scroll-smooth {
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+html.has-scroll-dragging {
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.smooth-scroll-container {
+  min-height: 100vh;
+}
+
+[data-scroll-section] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 /* Custom styles for the portfolio */

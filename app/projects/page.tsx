@@ -5,6 +5,7 @@ import { Typography, Row, Col, Card, Button, Tag, Tabs, Input } from 'antd';
 import { GithubOutlined, LinkOutlined, SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
+import AnimatedSection from '@/components/AnimatedSection';
 
 const { Title, Paragraph } = Typography;
 const { TabPane } = Tabs;
@@ -97,78 +98,84 @@ export default function Projects() {
   return (
     <PageLayout>
       <div className="space-y-8">
-        <section>
-          <Title>My Projects</Title>
-          <Paragraph className="text-lg">
-            Here's a collection of my recent work. Each project represents different skills and challenges I've tackled.
-          </Paragraph>
-        </section>
+        <AnimatedSection>
+          <section>
+            <Title>My Projects</Title>
+            <Paragraph className="text-lg">
+              Here's a collection of my recent work. Each project represents different skills and challenges I've tackled.
+            </Paragraph>
+          </section>
+        </AnimatedSection>
 
-        <section className="space-y-6">
-          <div className="flex flex-col md:flex-row justify-between gap-4">
-            <Tabs 
-              activeKey={activeCategory} 
-              onChange={setActiveCategory}
-              className="mb-4"
-              items={tabItems}
-            />
+        <AnimatedSection delay={2}>
+          <section className="space-y-6">
+            <div className="flex flex-col md:flex-row justify-between gap-4">
+              <Tabs 
+                activeKey={activeCategory} 
+                onChange={setActiveCategory}
+                className="mb-4"
+                items={tabItems}
+              />
 
-            <Input
-              placeholder="Search projects..."
-              prefix={<SearchOutlined />}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ maxWidth: '300px' }}
-            />
-          </div>
-
-          {filteredProjects.length === 0 ? (
-            <div className="text-center py-16">
-              <Title level={4}>No projects found matching your criteria</Title>
-              <Button type="primary" onClick={() => { setSearchTerm(''); setActiveCategory('all'); }}>
-                Clear Filters
-              </Button>
+              <Input
+                placeholder="Search projects..."
+                prefix={<SearchOutlined />}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ maxWidth: '300px' }}
+              />
             </div>
-          ) : (
-            <Row gutter={[24, 24]}>
-              {filteredProjects.map((project) => (
-                <Col xs={24} md={12} lg={8} key={project.id}>
-                  <Card
-                    hoverable
-                    cover={
-                      <div className="h-48 bg-gray-200 flex items-center justify-center">
-                        {/* Replace with actual project image */}
-                        <div className="text-2xl font-bold text-gray-400">{project.title}</div>
-                      </div>
-                    }
-                    actions={[
-                      <Link href={project.github} target="_blank" rel="noopener noreferrer" key="github">
-                        <GithubOutlined key="github" /> Code
-                      </Link>,
-                      <Link href={project.liveDemo} target="_blank" rel="noopener noreferrer" key="demo">
-                        <LinkOutlined key="link" /> Demo
-                      </Link>,
-                    ]}
-                  >
-                    <Card.Meta
-                      title={project.title}
-                      description={
-                        <div>
-                          <Paragraph ellipsis={{ rows: 3 }}>{project.description}</Paragraph>
-                          <div className="mt-4 flex flex-wrap gap-2">
-                            {project.tags.map((tag, index) => (
-                              <Tag color="blue" key={index}>{tag}</Tag>
-                            ))}
+
+            {filteredProjects.length === 0 ? (
+              <div className="text-center py-16">
+                <Title level={4}>No projects found matching your criteria</Title>
+                <Button type="primary" onClick={() => { setSearchTerm(''); setActiveCategory('all'); }}>
+                  Clear Filters
+                </Button>
+              </div>
+            ) : (
+              <Row gutter={[24, 24]}>
+                {filteredProjects.map((project, index) => (
+                  <Col xs={24} md={12} lg={8} key={project.id}>
+                    <AnimatedSection delay={index + 3}>
+                      <Card
+                        hoverable
+                        cover={
+                          <div className="h-48 bg-gray-200 flex items-center justify-center">
+                            {/* Replace with actual project image */}
+                            <div className="text-2xl font-bold text-gray-400">{project.title}</div>
                           </div>
-                        </div>
-                      }
-                    />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          )}
-        </section>
+                        }
+                        actions={[
+                          <Link href={project.github} target="_blank" rel="noopener noreferrer" key="github">
+                            <GithubOutlined key="github" /> Code
+                          </Link>,
+                          <Link href={project.liveDemo} target="_blank" rel="noopener noreferrer" key="demo">
+                            <LinkOutlined key="link" /> Demo
+                          </Link>,
+                        ]}
+                      >
+                        <Card.Meta
+                          title={project.title}
+                          description={
+                            <div>
+                              <Paragraph ellipsis={{ rows: 3 }}>{project.description}</Paragraph>
+                              <div className="mt-4 flex flex-wrap gap-2">
+                                {project.tags.map((tag, index) => (
+                                  <Tag color="blue" key={index}>{tag}</Tag>
+                                ))}
+                              </div>
+                            </div>
+                          }
+                        />
+                      </Card>
+                    </AnimatedSection>
+                  </Col>
+                ))}
+              </Row>
+            )}
+          </section>
+        </AnimatedSection>
       </div>
     </PageLayout>
   );
