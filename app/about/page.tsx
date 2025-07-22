@@ -32,11 +32,11 @@ export default function About() {
                 <div className="flex flex-col items-center justify-center h-full space-y-6">
                   <div className="relative w-48 h-48 rounded-full overflow-hidden">
                     {/* Add your actual image here */}
-                    <Image 
-                      src="/your-profile-image.jpg" 
-                      alt="Your Profile" 
-                      fill 
-                      style={{ objectFit: 'cover' }} 
+                    <Image
+                      src="/profile-image.jpg"
+                      alt="Your Profile"
+                      fill
+                      style={{ objectFit: 'cover' }}
                       priority
                     />
                   </div>

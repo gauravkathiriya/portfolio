@@ -37,11 +37,11 @@ export default function Home() {
           <div className="flex-1 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500">
               {/* Add your actual image here */}
-              <Image 
-                src="/your-profile-image.jpg" 
-                alt="Your Profile" 
-                fill 
-                style={{ objectFit: 'cover' }} 
+              <Image
+                src="/profile-image.jpg"
+                alt="Your Profile"
+                fill
+                style={{ objectFit: 'cover' }}
                 priority
               />
             </div>
@@ -164,7 +164,7 @@ export default function Home() {
         <section className="py-8 text-center bg-gray-50 rounded-lg p-8">
           <Title level={2}>Let's Work Together</Title>
           <Paragraph className="text-lg max-w-2xl mx-auto mb-6">
-            I'm currently available for freelance work or full-time opportunities. 
+            I'm currently available for freelance work or full-time opportunities.
             If you're interested in working together, feel free to reach out!
           </Paragraph>
           <Button type="primary" size="large" icon={<MailOutlined />}>
