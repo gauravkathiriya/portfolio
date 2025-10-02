@@ -588,7 +588,6 @@ export default function Home() {
                       >
                         <Github className="mr-2 h-4 w-4" />
                         GitHub
-
                       </Button>
                     </div>
                   </CardContent>
@@ -599,7 +598,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Education & Certifications */}
       <motion.section
         className="py-20"
         initial="initial"
@@ -667,7 +665,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
       <motion.section
         className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white"
         initial="initial"
@@ -695,40 +692,28 @@ export default function Home() {
                   gauravkathiriya145@gmail.com
                 </span>
                 <span className="sm:hidden">Email</span>
-                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                  Click to copy email
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                </span>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 hover:shadow-lg group relative"
+                className="border-white text-white hover:cursor-pointer transition-all duration-200 hover:shadow-lg group relative"
               >
                 <Github className="mr-2 h-5 w-5" />
                 GitHub
-                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                  Visit my GitHub profile
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                </span>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 hover:shadow-lg group relative"
+                className="border-white text-white hover:cursor-pointer transition-all duration-200 hover:shadow-lg group relative"
               >
                 <Linkedin className="mr-2 h-5 w-5" />
                 LinkedIn
-                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                  Connect on LinkedIn
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                </span>
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>📞 9428875063</span>
+                <span>9428875063</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
@@ -739,11 +724,10 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 Gaurav Kathiriya. All rights reserved. Built with Next.js and
+            © 2025 Gaurav Kathiriya. All rights reserved. Built with Next.js and
             Tailwind CSS.
           </p>
         </div>
