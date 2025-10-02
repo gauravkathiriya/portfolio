@@ -113,7 +113,7 @@ export default function ContactPage() {
     // Replace with your EmailJS service ID, template ID, and user ID
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_VALUE || "";
 
     const templateParams = {
       from_name: formData.name,
@@ -129,7 +129,6 @@ export default function ContactPage() {
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
 
-      // ✅ Success toast
       toast.success("Message sent!", {
         description: "Thanks for reaching out. I’ll get back to you soon.",
         duration: 4000,
@@ -137,9 +136,9 @@ export default function ContactPage() {
     } catch (error) {
       console.error("Failed to send email:", error);
 
-      // ❌ Error toast
       toast.error("Failed to send", {
-        description: "Something went wrong. Please try again later.",
+        description:
+          error instanceof Error ? error.message : "Please try again later.",
         duration: 4000,
       });
     } finally {
