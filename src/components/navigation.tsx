@@ -1,26 +1,22 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { SimpleThemeToggle } from '@/components/theme-toggle';
-import { 
-  Home, 
-  User, 
-  FolderOpen, 
-  Mail, 
-  Menu, 
-  X,
-  Code2
-} from 'lucide-react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { SimpleThemeToggle } from "@/components/theme-toggle";
+import { Home, User, FolderOpen, Mail, Menu, X, Code2 } from "lucide-react";
 
 const navItems = [
-  { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
-  { name: 'About', href: '/about', icon: <User className="w-4 h-4" /> },
-  { name: 'Projects', href: '/projects', icon: <FolderOpen className="w-4 h-4" /> },
-  { name: 'Contact', href: '/contact', icon: <Mail className="w-4 h-4" /> },
+  { name: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
+  { name: "About", href: "/about", icon: <User className="w-4 h-4" /> },
+  {
+    name: "Projects",
+    href: "/projects",
+    icon: <FolderOpen className="w-4 h-4" />,
+  },
+  { name: "Contact", href: "/contact", icon: <Mail className="w-4 h-4" /> },
 ];
 
 export function Navigation() {
@@ -33,8 +29,8 @@ export function Navigation() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -44,11 +40,11 @@ export function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <motion.nav 
+      <motion.nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
+          scrolled
+            ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -78,8 +74,8 @@ export function Navigation() {
                     variant="ghost"
                     className={`relative px-4 py-2 transition-all duration-200 ${
                       pathname === item.href
-                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold'
-                        : 'text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
+                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold"
+                        : "text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
                     }`}
                   >
                     <span className="flex items-center gap-2">
@@ -91,13 +87,17 @@ export function Navigation() {
                         className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
                         layoutId="activeTab"
                         initial={false}
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </Button>
                 </Link>
               ))}
-              
+
               {/* Theme Toggle in Desktop Menu */}
               <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700">
                 <SimpleThemeToggle />
@@ -154,7 +154,7 @@ export function Navigation() {
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
             />
-            
+
             {/* Mobile Menu Panel */}
             <motion.div
               className="fixed top-16 left-4 right-4 bg-white dark:bg-slate-900 rounded-lg shadow-xl z-40 md:hidden"
@@ -176,8 +176,8 @@ export function Navigation() {
                         variant="ghost"
                         className={`w-full justify-start text-left transition-all duration-200 ${
                           pathname === item.href
-                            ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold'
-                            : 'text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
+                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold"
+                            : "text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
                         }`}
                       >
                         <span className="flex items-center gap-3">
@@ -193,26 +193,6 @@ export function Navigation() {
           </>
         )}
       </AnimatePresence>
-
-      {/* Floating Navigation Dots (Alternative) */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-30 hidden xl:block">
-        <div className="flex flex-col gap-4">
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <motion.div
-                className={`w-3 h-3 rounded-full border-2 transition-all duration-200 ${
-                  pathname === item.href
-                    ? 'bg-blue-600 border-blue-600 scale-125'
-                    : 'bg-transparent border-gray-400 hover:border-blue-600 hover:scale-110'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                title={item.name}
-              />
-            </Link>
-          ))}
-        </div>
-      </div>
     </>
   );
 }
