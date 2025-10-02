@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { SimpleThemeToggle } from '@/components/theme-toggle';
 import { Navigation } from '@/components/navigation';
 import { 
   Code,
@@ -74,7 +73,6 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <SimpleThemeToggle />
       <Navigation />
       
       {/* Hero Section */}

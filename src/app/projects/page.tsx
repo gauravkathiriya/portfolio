@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { SimpleThemeToggle } from '@/components/theme-toggle';
 import { Navigation } from '@/components/navigation';
 import { 
   ExternalLink,
@@ -151,7 +150,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <SimpleThemeToggle />
       <Navigation />
       
       {/* Hero Section */}

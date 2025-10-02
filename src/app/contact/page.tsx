@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { SimpleThemeToggle } from '@/components/theme-toggle';
 import { Navigation } from '@/components/navigation';
 import { 
   Mail, 
@@ -117,7 +116,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <SimpleThemeToggle />
       <Navigation />
       
       {/* Hero Section */}
