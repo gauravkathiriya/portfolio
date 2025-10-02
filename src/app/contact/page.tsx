@@ -25,7 +25,6 @@ import {
   Clock,
   CheckCircle,
 } from "lucide-react";
-import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 
 const fadeInUp = {
