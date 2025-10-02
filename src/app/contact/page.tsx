@@ -25,6 +25,8 @@ import {
   Clock,
   CheckCircle,
 } from "lucide-react";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -51,8 +53,8 @@ const contactInfo = [
   {
     icon: <Phone className="h-6 w-6" />,
     title: "Phone",
-    value: "+91 9428875063",
-    description: "Call me for urgent matters",
+    value: "+91 9924875063",
+    description: "Don't call, just WhatsApp me!",
     color: "text-green-600",
   },
   {
@@ -124,11 +126,23 @@ export default function ContactPage() {
 
     try {
       await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
+
+      // ✅ Success toast
+      toast.success("Message sent!", {
+        description: "Thanks for reaching out. I’ll get back to you soon.",
+        duration: 4000,
+      });
     } catch (error) {
       console.error("Failed to send email:", error);
-      // You might want to show an error message to the user here
+
+      // ❌ Error toast
+      toast.error("Failed to send", {
+        description: "Something went wrong. Please try again later.",
+        duration: 4000,
+      });
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
