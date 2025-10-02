@@ -1,133 +1,166 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  MapPin, 
-  Phone, 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
   ExternalLink,
   Code,
   Database,
   Server,
   Globe,
   Award,
-  Calendar
-} from 'lucide-react';
+  Calendar,
+} from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const skills = {
   frontend: [
-    'React', 'Next.js', 'TypeScript', 'JavaScript', 'Material-UI', 'TailwindCSS', 'Bootstrap'
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Material-UI",
+    "TailwindCSS",
+    "Bootstrap",
   ],
   backend: [
-    'NestJS', 'Node.js', 'Express.js', 'GraphQL', 'REST APIs', 'TypeORM', 'Prisma'
+    "NestJS",
+    "Node.js",
+    "Express.js",
+    "GraphQL",
+    "REST APIs",
+    "TypeORM",
+    "Prisma",
   ],
-  database: [
-    'PostgreSQL', 'MySQL', 'MongoDB'
-  ],
+  database: ["PostgreSQL", "MySQL", "MongoDB"],
   tools: [
-    'Apollo Client', 'JWT', 'Passport.js', 'Docker', 'Git', 'GitHub', 'GitLab'
-  ]
+    "Apollo Client",
+    "JWT",
+    "Passport.js",
+    "Docker",
+    "Git",
+    "GitHub",
+    "GitLab",
+  ],
 };
 
 const experiences = [
   {
-    title: 'Full Stack Developer',
-    company: 'Team Unibrains',
-    period: 'Jun 2024 - Present',
-    description: 'Full Stack Developer with expertise in React.js and Next.JS. Proficient in database management using TypeORM and Prisma. Skilled in developing scalable REST and GraphQL APIs. Experienced in building and optimizing end-to-end web applications.',
-    technologies: ['React.js', 'Next.js', 'TypeORM', 'Prisma', 'GraphQL', 'REST APIs']
+    title: "Full Stack Developer",
+    company: "Team Unibrains",
+    period: "Jun 2024 - Present",
+    description:
+      "Full Stack Developer with expertise in React.js and Next.JS. Proficient in database management using TypeORM and Prisma. Skilled in developing scalable REST and GraphQL APIs. Experienced in building and optimizing end-to-end web applications.",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "TypeORM",
+      "Prisma",
+      "GraphQL",
+      "REST APIs",
+    ],
   },
   {
-    title: 'Web Development Intern',
-    company: 'Prodigy Infotech',
-    period: 'Jun 2024',
-    description: 'Web Development Intern. Built basic projects using React.js - VPN Website, Stopwatch & Timer, Live Weather Website.',
-    technologies: ['React.js', 'JavaScript', 'HTML', 'CSS']
+    title: "Web Development Intern",
+    company: "Prodigy Infotech",
+    period: "Jun 2024",
+    description:
+      "Web Development Intern. Built basic projects using React.js - VPN Website, Stopwatch & Timer, Live Weather Website.",
+    technologies: ["React.js", "JavaScript", "HTML", "CSS"],
   },
   {
-    title: 'Back-End Development Intern',
-    company: 'Bet Web',
-    period: 'Dec 2023',
-    description: 'Back-End Development Intern. Learned about back-end development with Python Django framework.',
-    technologies: ['Python', 'Django', 'Backend Development']
-  }
+    title: "Back-End Development Intern",
+    company: "Bet Web",
+    period: "Dec 2023",
+    description:
+      "Back-End Development Intern. Learned about back-end development with Python Django framework.",
+    technologies: ["Python", "Django", "Backend Development"],
+  },
 ];
 
 const projects = [
   {
-    title: 'Onechat Chat Application',
-    description: 'A real-time chat application with authentication and responsive UI.',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    liveDemo: '#',
-    github: '#'
+    title: "Onechat Chat Application",
+    description:
+      "A real-time chat application with authentication and responsive UI.",
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+    liveDemo: "#",
+    github: "#",
   },
   {
-    title: 'Weather App',
-    description: 'Weather forecasting app using API integration.',
-    technologies: ['React', 'API Integration', 'Responsive Design'],
-    liveDemo: '#',
-    github: '#'
+    title: "Weather App",
+    description: "Weather forecasting app using API integration.",
+    technologies: ["React", "API Integration", "Responsive Design"],
+    liveDemo: "#",
+    github: "#",
   },
   {
-    title: 'Expense Tracker',
-    description: 'Expense tracker with logic functionality and user dashboard.',
-    technologies: ['React', 'Local Storage', 'Chart.js'],
-    liveDemo: '#',
-    github: '#'
+    title: "Expense Tracker",
+    description: "Expense tracker with logic functionality and user dashboard.",
+    technologies: ["React", "Local Storage", "Chart.js"],
+    liveDemo: "#",
+    github: "#",
   },
   {
-    title: 'Online Auction System',
-    description: 'An online auction platform with real-time bidding.',
-    technologies: ['React', 'Node.js', 'WebSocket', 'PostgreSQL'],
-    liveDemo: '#',
-    github: '#'
-  }
+    title: "Online Auction System",
+    description: "An online auction platform with real-time bidding.",
+    technologies: ["React", "Node.js", "WebSocket", "PostgreSQL"],
+    liveDemo: "#",
+    github: "#",
+  },
 ];
 
 const education = [
   {
-    degree: 'Bachelor of Computer Information Technology (CGPA: 8.96)',
-    institution: 'Silver Oak University',
-    period: '2021 - 2025'
+    degree: "Bachelor of Computer Information Technology (CGPA: 8.96)",
+    institution: "Silver Oak University",
+    period: "2021 - 2025",
   },
   {
-    degree: 'HSC (Percentage: 74.73%)',
-    institution: 'J.B. & Karp Vidya Sankul',
-    period: '2019 - 2021'
-  }
+    degree: "HSC (Percentage: 74.73%)",
+    institution: "J.B. & Karp Vidya Sankul",
+    period: "2019 - 2021",
+  },
 ];
 
 const certifications = [
-  'Crash Course on Python by Google',
-  'Web Development Course by Johns Hopkins University',
-  'Infosys Volunteer (2022)'
+  "Crash Course on Python by Google",
+  "Web Development Course by Johns Hopkins University",
+  "Infosys Volunteer (2022)",
 ];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white"
         initial="initial"
         animate="animate"
@@ -136,56 +169,79 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <motion.div 
+            <motion.div
               className="flex-1 text-center lg:text-left"
               variants={fadeInUp}
             >
-              <motion.h1 
+              <motion.h1
                 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent"
                 variants={fadeInUp}
               >
                 Gaurav Kathiriya
               </motion.h1>
-              <motion.p 
+              <motion.p
                 className="text-xl lg:text-2xl mb-4 text-blue-100"
                 variants={fadeInUp}
               >
                 Frontend Developer
               </motion.p>
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8"
                 variants={fadeInUp}
               >
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
                   React
                 </Badge>
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
                   NestJS
                 </Badge>
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
                   GraphQL
                 </Badge>
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
                   PostgreSQL
                 </Badge>
-                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
                   MUI
                 </Badge>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"
                 variants={fadeInUp}
               >
-                <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-blue-50"
+                >
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Me
                 </Button>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex justify-center lg:justify-start gap-6 text-sm"
                 variants={fadeInUp}
               >
@@ -203,10 +259,7 @@ export default function Home() {
                 </div>
               </motion.div>
             </motion.div>
-            <motion.div 
-              className="flex-shrink-0"
-              variants={fadeInUp}
-            >
+            <motion.div className="flex-shrink-0" variants={fadeInUp}>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-lg opacity-75 animate-pulse"></div>
                 <Image
@@ -224,7 +277,7 @@ export default function Home() {
       </motion.section>
 
       {/* About Section */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="initial"
         whileInView="animate"
@@ -238,52 +291,81 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           </motion.div>
-          
+
           <motion.div variants={fadeInUp} className="max-w-4xl mx-auto">
             <Card className="p-8 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <CardContent className="space-y-6">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  🚀 <strong>Full-Stack Developer | React | NestJS | GraphQL | PostgreSQL | MUI</strong>
+                  🚀{" "}
+                  <strong>
+                    Full-Stack Developer | React | NestJS | GraphQL | PostgreSQL
+                    | MUI
+                  </strong>
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Hi there! I&apos;m a skilled Full-Stack Developer with expertise in React, NestJS, GraphQL, and PostgreSQL, 
-                  specializing in building high-performance web applications. With a strong background in monorepo architecture, 
-                  Material-UI, and Apollo Client, I create scalable and efficient solutions tailored to business needs.
+                  Hi there! I&apos;m a skilled Full-Stack Developer with
+                  expertise in React, NestJS, GraphQL, and PostgreSQL,
+                  specializing in building high-performance web applications.
+                  With a strong background in monorepo architecture,
+                  Material-UI, and Apollo Client, I create scalable and
+                  efficient solutions tailored to business needs.
                 </p>
-                
+
                 <div className="grid md:grid-cols-2 gap-8 mt-8">
                   <div>
-                    <h3 className="text-xl font-semibold mb-4 text-gray-900">What I Offer:</h3>
+                    <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                      What I Offer:
+                    </h3>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>Front-End Development:</strong> React, Next.js, MUI, TailwindCSS, Bootstrap</span>
+                        <span>
+                          <strong>Front-End Development:</strong> React,
+                          Next.js, MUI, TailwindCSS, Bootstrap
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>Back-End Development:</strong> NestJS, Node.js, Express.js</span>
+                        <span>
+                          <strong>Back-End Development:</strong> NestJS,
+                          Node.js, Express.js
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>Database Management:</strong> PostgreSQL, MySQL, MongoDB</span>
+                        <span>
+                          <strong>Database Management:</strong> PostgreSQL,
+                          MySQL, MongoDB
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>GraphQL & REST APIs:</strong> Apollo Client, TypeORM, Prisma</span>
+                        <span>
+                          <strong>GraphQL & REST APIs:</strong> Apollo Client,
+                          TypeORM, Prisma
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>Authentication & Security:</strong> JWT, Passport.js</span>
+                        <span>
+                          <strong>Authentication & Security:</strong> JWT,
+                          Passport.js
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-500 mt-1">✅</span>
-                        <span><strong>Performance Optimization:</strong> Caching, Query Optimization, Best Practices</span>
+                        <span>
+                          <strong>Performance Optimization:</strong> Caching,
+                          Query Optimization, Best Practices
+                        </span>
                       </li>
                     </ul>
                   </div>
-                  
+
                   <div>
-                    <h3 className="text-xl font-semibold mb-4 text-gray-900">Why Work With Me?</h3>
+                    <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                      Why Work With Me?
+                    </h3>
                     <ul className="space-y-2 text-gray-600">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-500 mt-1">🔹</span>
@@ -291,7 +373,9 @@ export default function Home() {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-500 mt-1">🔹</span>
-                        <span>Clean, maintainable, and well-documented code</span>
+                        <span>
+                          Clean, maintainable, and well-documented code
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-500 mt-1">🔹</span>
@@ -311,7 +395,7 @@ export default function Home() {
       </motion.section>
 
       {/* Skills Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-gray-50 dark:bg-slate-800/50"
         initial="initial"
         whileInView="animate"
@@ -325,7 +409,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div variants={fadeInUp}>
               <Card className="h-full hover:shadow-lg transition-shadow">
@@ -336,13 +420,15 @@ export default function Home() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.frontend.map((skill) => (
-                      <Badge key={skill} variant="secondary">{skill}</Badge>
+                      <Badge key={skill} variant="secondary">
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
-            
+
             <motion.div variants={fadeInUp}>
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
@@ -352,13 +438,15 @@ export default function Home() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.backend.map((skill) => (
-                      <Badge key={skill} variant="secondary">{skill}</Badge>
+                      <Badge key={skill} variant="secondary">
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
-            
+
             <motion.div variants={fadeInUp}>
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
@@ -368,13 +456,15 @@ export default function Home() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.database.map((skill) => (
-                      <Badge key={skill} variant="secondary">{skill}</Badge>
+                      <Badge key={skill} variant="secondary">
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
-            
+
             <motion.div variants={fadeInUp}>
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
@@ -384,7 +474,9 @@ export default function Home() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {skills.tools.map((skill) => (
-                      <Badge key={skill} variant="secondary">{skill}</Badge>
+                      <Badge key={skill} variant="secondary">
+                        {skill}
+                      </Badge>
                     ))}
                   </div>
                 </CardContent>
@@ -395,7 +487,7 @@ export default function Home() {
       </motion.section>
 
       {/* Experience Section */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="initial"
         whileInView="animate"
@@ -409,7 +501,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto space-y-8">
             {experiences.map((exp, index) => (
               <motion.div key={index} variants={fadeInUp}>
@@ -432,7 +524,9 @@ export default function Home() {
                     <p className="text-gray-600 mb-4">{exp.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                        <Badge key={tech} variant="secondary">
+                          {tech}
+                        </Badge>
                       ))}
                     </div>
                   </CardContent>
@@ -444,7 +538,7 @@ export default function Home() {
       </motion.section>
 
       {/* Projects Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-gray-50 dark:bg-slate-800/50"
         initial="initial"
         whileInView="animate"
@@ -458,7 +552,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div key={index} variants={fadeInUp}>
@@ -472,7 +566,9 @@ export default function Home() {
                   <CardContent>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                        <Badge key={tech} variant="secondary">
+                          {tech}
+                        </Badge>
                       ))}
                     </div>
                     <div className="flex gap-4">
@@ -494,7 +590,7 @@ export default function Home() {
       </motion.section>
 
       {/* Education & Certifications */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="initial"
         whileInView="animate"
@@ -508,7 +604,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           </motion.div>
-          
+
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <motion.div variants={fadeInUp}>
               <Card className="h-full">
@@ -520,16 +616,23 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {education.map((edu, index) => (
-                    <div key={index} className="border-l-4 border-blue-600 pl-4">
-                      <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-                      <p className="text-blue-600 font-medium">{edu.institution}</p>
+                    <div
+                      key={index}
+                      className="border-l-4 border-blue-600 pl-4"
+                    >
+                      <h3 className="font-semibold text-gray-900">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-blue-600 font-medium">
+                        {edu.institution}
+                      </p>
                       <p className="text-gray-600">{edu.period}</p>
                     </div>
                   ))}
                 </CardContent>
               </Card>
             </motion.div>
-            
+
             <motion.div variants={fadeInUp}>
               <Card className="h-full">
                 <CardHeader>
@@ -555,7 +658,7 @@ export default function Home() {
       </motion.section>
 
       {/* Contact Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white"
         initial="initial"
         whileInView="animate"
@@ -568,18 +671,31 @@ export default function Home() {
               Let&apos;s Work Together
             </h2>
             <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let&apos;s discuss your next project and create something amazing together.
+              Ready to bring your ideas to life? Let&apos;s discuss your next
+              project and create something amazing together.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mb-8">
-              <Button variant="secondary" size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50"
+              >
                 <Mail className="mr-2 h-5 w-5" />
                 gauravkathiriya145@gmail.com
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-blue-600"
+              >
                 <Github className="mr-2 h-5 w-5" />
                 GitHub
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-blue-600"
+              >
                 <Linkedin className="mr-2 h-5 w-5" />
                 LinkedIn
               </Button>
@@ -602,7 +718,8 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 Gaurav Kathiriya. All rights reserved. Built with Next.js and Tailwind CSS.
+            © 2024 Gaurav Kathiriya. All rights reserved. Built with Next.js and
+            Tailwind CSS.
           </p>
         </div>
       </footer>
