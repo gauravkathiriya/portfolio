@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Navigation } from "@/components/navigation";
-import { ExternalLink, Github, Star, Eye, Zap, Filter } from "lucide-react";
+import { ExternalLink, Github, Star, Zap, Filter } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
