@@ -9,10 +9,8 @@ import { Navigation } from '@/components/navigation';
 import { 
   ExternalLink,
   Github,
-  Calendar,
   Star,
   Eye,
-  Code,
   Zap,
   Filter
 } from 'lucide-react';
@@ -140,7 +138,6 @@ const categories = ['All', 'Full-Stack', 'Frontend', 'Backend'];
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
@@ -285,7 +282,7 @@ export default function ProjectsPage() {
           </motion.div>
           
           <div className="grid lg:grid-cols-2 gap-8">
-            {featuredProjects.map((project, index) => (
+            {featuredProjects.map((project) => (
               <motion.div key={project.id} variants={fadeInUp}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 group overflow-hidden">
                   <div className="relative h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
@@ -420,7 +417,7 @@ export default function ProjectsPage() {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             layout
           >
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div 
                 key={project.id} 
                 variants={fadeInUp}
@@ -521,7 +518,7 @@ export default function ProjectsPage() {
               Have a Project in Mind?
             </h2>
             <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-              Let's collaborate and bring your ideas to life with cutting-edge technology and creative solutions.
+              Let&apos;s collaborate and bring your ideas to life with cutting-edge technology and creative solutions.
             </p>
             <Button 
               size="lg" 
