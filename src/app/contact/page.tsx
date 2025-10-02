@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -108,21 +109,36 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // Replace with your EmailJS service ID, template ID, and user ID
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: "Gaurav Kathiriya",
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+    try {
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      // You might want to show an error message to the user here
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-200">
       <Navigation />
 
       {/* Hero Section */}
@@ -233,12 +249,12 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div variants={fadeInUp}>
-              <Card className="p-8 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+              <Card className="p-8 shadow-lg border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900 dark:text-white">
                     Send me a message
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="dark:text-gray-400">
                     I&apos;d love to hear from you. Send me a message and
                     I&apos;ll respond as soon as possible.
                   </CardDescription>
@@ -262,7 +278,7 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={handleInputChange}
                             placeholder="Your full name"
-                            className="w-full"
+                            className="w-full bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-blue-500 focus:border-blue-500"
                           />
                         </div>
                         <div>
@@ -280,7 +296,7 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="your.email@example.com"
-                            className="w-full"
+                            className="w-full bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-blue-500 focus:border-blue-500"
                           />
                         </div>
                       </div>
@@ -300,7 +316,7 @@ export default function ContactPage() {
                           value={formData.subject}
                           onChange={handleInputChange}
                           placeholder="What's this about?"
-                          className="w-full"
+                          className="w-full bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
 
@@ -319,7 +335,7 @@ export default function ContactPage() {
                           onChange={handleInputChange}
                           placeholder="Tell me about your project or just say hello!"
                           rows={6}
-                          className="w-full"
+                          className="w-full bg-slate-50 dark:bg-slate-700 border-slate-300 dark:border-slate-600 focus:ring-blue-500 focus:border-blue-500"
                         />
                       </div>
 
@@ -404,10 +420,10 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Card className="p-6 hover:shadow-lg transition-shadow">
+                    <Card className="p-6 hover:shadow-lg transition-shadow bg-white dark:bg-slate-800">
                       <div className="flex items-center gap-4">
                         <div
-                          className={`p-3 rounded-full bg-gray-100 dark:bg-gray-800 ${info.color}`}
+                          className={`p-3 rounded-full bg-gray-100 dark:bg-gray-700 ${info.color}`}
                         >
                           {info.icon}
                         </div>
