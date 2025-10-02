@@ -11,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SimpleThemeToggle } from "@/components/theme-toggle";
 import { Navigation } from "@/components/navigation";
 import {
   Github,
@@ -161,10 +160,9 @@ const certifications = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <SimpleThemeToggle />
       <Navigation />
       <motion.section
-        className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white"
+        className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white pt-16"
         initial="initial"
         animate="animate"
         variants={staggerContainer}
