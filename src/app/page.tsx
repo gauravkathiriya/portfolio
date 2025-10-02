@@ -11,6 +11,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { SimpleThemeToggle } from "@/components/theme-toggle";
+import { Navigation } from "@/components/navigation";
 import {
   Github,
   Linkedin,
@@ -159,7 +161,8 @@ const certifications = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      {/* Hero Section */}
+      <SimpleThemeToggle />
+      <Navigation />
       <motion.section
         className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white"
         initial="initial"
@@ -227,7 +230,7 @@ export default function Home() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-blue-50"
+                  className="bg-white text-blue-600 hover:bg-blue-50 hover:cursor-pointer transition-all duration-200 hover:shadow-lg group relative"
                 >
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Me
@@ -235,27 +238,27 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  className="border-white text-white hover:cursor-pointer transition-all duration-200 hover:shadow-lg group relative"
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
               </motion.div>
               <motion.div
-                className="flex justify-center lg:justify-start gap-6 text-sm"
+                className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-6 text-sm"
                 variants={fadeInUp}
               >
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4" />
-                  gauravkathiriya145@gmail.com
+                <div className="flex items-center justify-center lg:justify-start gap-2">
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  <span className="truncate">gauravkathiriya145@gmail.com</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  📞 9428875063
+                <div className="flex items-center justify-center lg:justify-start gap-2">
+                  <Phone className="h-4 w-4 flex-shrink-0" />
+                  <span>9428875063</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  Surat, Gujarat, India
+                <div className="flex items-center justify-center lg:justify-start gap-2">
+                  <MapPin className="h-4 w-4 flex-shrink-0" />
+                  <span>Surat, Gujarat, India</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -572,13 +575,22 @@ export default function Home() {
                       ))}
                     </div>
                     <div className="flex gap-4">
-                      <Button variant="outline" size="sm">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative"
+                      >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo
                       </Button>
-                      <Button variant="outline" size="sm">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative"
+                      >
                         <Github className="mr-2 h-4 w-4" />
                         GitHub
+
                       </Button>
                     </div>
                   </CardContent>
@@ -678,36 +690,51 @@ export default function Home() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50"
+                className="bg-white text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:shadow-lg group relative"
               >
                 <Mail className="mr-2 h-5 w-5" />
-                gauravkathiriya145@gmail.com
+                <span className="hidden sm:inline">
+                  gauravkathiriya145@gmail.com
+                </span>
+                <span className="sm:hidden">Email</span>
+                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Click to copy email
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </span>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
+                className="border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 hover:shadow-lg group relative"
               >
                 <Github className="mr-2 h-5 w-5" />
                 GitHub
+                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Visit my GitHub profile
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </span>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
+                className="border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 hover:shadow-lg group relative"
               >
                 <Linkedin className="mr-2 h-5 w-5" />
                 LinkedIn
+                <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                  Connect on LinkedIn
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </span>
               </Button>
             </div>
-            <div className="flex justify-center items-center gap-8 text-sm">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm">
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                📞 9428875063
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>📞 9428875063</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                Surat, Gujarat, India
+                <MapPin className="h-4 w-4 flex-shrink-0" />
+                <span>Surat, Gujarat, India</span>
               </div>
             </div>
           </motion.div>

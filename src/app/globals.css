@@ -118,5 +118,23 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Smooth transitions for theme changes */
+  html {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Enhanced hover effects */
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1;
+  }
+  
+  /* Mobile touch feedback */
+  @media (hover: none) {
+    .group:active .group-active\:opacity-100 {
+      opacity: 1;
+    }
   }
 }
