@@ -252,7 +252,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Phone className="h-4 w-4 flex-shrink-0" />
-                  <span>9428875063</span>
+                  <span>9924875063</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <MapPin className="h-4 w-4 flex-shrink-0" />
@@ -713,7 +713,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>9428875063</span>
+                <span>9924875063</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
