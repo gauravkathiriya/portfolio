@@ -61,7 +61,7 @@ const projects = [
     category: "Frontend",
     status: "Completed",
     featured: true,
-    liveDemo: "https://track-weather-application.netlify.app/",
+    liveDemo: "https://track-weather-application.vercel.app/",
     github: "https://github.com/gauravkathiriya/weather-app",
     image: "/api/placeholder/400/250",
   },

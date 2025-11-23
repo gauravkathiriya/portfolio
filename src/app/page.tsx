@@ -119,7 +119,7 @@ const projects = [
     title: "Weather App",
     description: "Weather forecasting app using API integration.",
     technologies: ["React", "API Integration", "Responsive Design"],
-    liveDemo: "https://track-weather-application.netlify.app/",
+    liveDemo: "https://track-weather-application.vercel.app/",
     github: "https://github.com/gauravkathiriya/weather-app",
   },
   {
