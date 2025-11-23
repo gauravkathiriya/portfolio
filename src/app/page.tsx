@@ -111,30 +111,31 @@ const projects = [
     title: "Onechat Chat Application",
     description:
       "A real-time chat application with authentication and responsive UI.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-    liveDemo: "#",
-    github: "#",
+    technologies: ["React", "Socket.io", "Supabase"],
+    liveDemo: "https://onechat-khaki.vercel.app/",
+    github: "https://github.com/gauravkathiriya/onechat",
   },
   {
     title: "Weather App",
     description: "Weather forecasting app using API integration.",
     technologies: ["React", "API Integration", "Responsive Design"],
-    liveDemo: "#",
-    github: "#",
+    liveDemo: "https://track-weather-application.netlify.app/",
+    github: "https://github.com/gauravkathiriya/weather-app",
   },
   {
     title: "Expense Tracker",
     description: "Expense tracker with logic functionality and user dashboard.",
-    technologies: ["React", "Local Storage", "Chart.js"],
-    liveDemo: "#",
-    github: "#",
+    technologies: ["React", "Supabase", "Chart.js"],
+    liveDemo: "https://expence-tracker-eta-nine.vercel.app/login",
+    github: "https://github.com/gauravkathiriya/expence-tracker",
   },
   {
     title: "Online Auction System",
     description: "An online auction platform with real-time bidding.",
-    technologies: ["React", "Node.js", "WebSocket", "PostgreSQL"],
-    liveDemo: "#",
-    github: "#",
+    technologies: ["Next.js", "Nest.js", "WebSocket", "PostgreSQL"],
+    liveDemo: "https://quickbidz.netlify.app/",
+    github:
+      "https://github.com/gauravkathiriya/online-auction-platform-quickbidz",
   },
 ];
 
@@ -154,7 +155,7 @@ const education = [
 const certifications = [
   "Crash Course on Python by Google",
   "Web Development Course by Johns Hopkins University",
-  "Infosys Volunteer (2022)",
+  "Silver oak Volunteer (2022)",
 ];
 
 export default function Home() {
@@ -194,7 +195,13 @@ export default function Home() {
                   variant="secondary"
                   className="bg-white/20 text-white border-white/30"
                 >
-                  React
+                  ReactJS
+                </Badge>
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
+                  NextJS
                 </Badge>
                 <Badge
                   variant="secondary"
@@ -219,6 +226,12 @@ export default function Home() {
                   className="bg-white/20 text-white border-white/30"
                 >
                   MUI
+                </Badge>
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white border-white/30"
+                >
+                  Shadcn
                 </Badge>
               </motion.div>
               <motion.div
@@ -248,7 +261,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  <span className="truncate">gauravkathiriya145@gmail.com</span>
+                  <span className="truncate">gauravkathiriya45@gmail.com</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start gap-2">
                   <Phone className="h-4 w-4 flex-shrink-0" />
@@ -576,7 +589,7 @@ export default function Home() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative"
+                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative hover:cursor-pointer"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo
@@ -584,7 +597,7 @@ export default function Home() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative"
+                        className="hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group relative hover:cursor-pointer"
                       >
                         <Github className="mr-2 h-4 w-4" />
                         GitHub
@@ -689,7 +702,7 @@ export default function Home() {
               >
                 <Mail className="mr-2 h-5 w-5" />
                 <span className="hidden sm:inline">
-                  gauravkathiriya145@gmail.com
+                  gauravkathiriya45@gmail.com
                 </span>
                 <span className="sm:hidden">Email</span>
               </Button>

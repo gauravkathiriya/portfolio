@@ -154,7 +154,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📞 Contact
 
-- **Email**: gauravkathiriya145@gmail.com
+- **Email**: gauravkathiriya45@gmail.com
 - **Phone**: +91 9924875063
 - **Location**: Surat, Gujarat, India
 

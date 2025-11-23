@@ -45,7 +45,7 @@ const contactInfo = [
   {
     icon: <Mail className="h-6 w-6" />,
     title: "Email",
-    value: "gauravkathiriya145@gmail.com",
+    value: "gauravkathiriya45@gmail.com",
     description: "Send me an email anytime!",
     color: "text-blue-600",
   },

@@ -33,22 +33,15 @@ const projects = [
     id: 1,
     title: "Onechat Chat Application",
     description:
-      "A real-time chat application with authentication, message encryption, and responsive UI. Features include group chats, file sharing, and emoji reactions.",
+      "A real-time chat application with authentication, message encryption, and responsive UI. Features include group chats, file sharing, and emoji NextJSions.",
     longDescription:
-      "Built with React and Node.js, this chat application provides seamless real-time communication with Socket.io. Includes user authentication, message history, typing indicators, and mobile-responsive design.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Socket.io",
-      "MongoDB",
-      "JWT",
-      "Material-UI",
-    ],
+      "Built with NextJS and NestJS, this chat application provides seamless real-time communication with Socket.io. Includes user authentication, message history, typing indicators, and mobile-responsive design.",
+    technologies: ["NextJS", "NestJS", "Supabase", "Shadcn"],
     category: "Full-Stack",
     status: "Completed",
     featured: true,
-    liveDemo: "#",
-    github: "#",
+    liveDemo: "https://onechat-khaki.vercel.app/",
+    github: "https://github.com/gauravkathiriya/onechat",
     image: "/api/placeholder/400/250",
   },
   {
@@ -59,7 +52,7 @@ const projects = [
     longDescription:
       "A comprehensive weather application that provides accurate weather information using multiple APIs. Features include geolocation, weather alerts, and beautiful data visualizations.",
     technologies: [
-      "React",
+      "NextJS",
       "TypeScript",
       "API Integration",
       "Chart.js",
@@ -68,8 +61,8 @@ const projects = [
     category: "Frontend",
     status: "Completed",
     featured: true,
-    liveDemo: "#",
-    github: "#",
+    liveDemo: "https://track-weather-application.netlify.app/",
+    github: "https://github.com/gauravkathiriya/weather-app",
     image: "/api/placeholder/400/250",
   },
   {
@@ -79,18 +72,12 @@ const projects = [
       "Intelligent expense tracking app with budget management, category-wise analysis, and financial insights.",
     longDescription:
       "A comprehensive expense management solution with AI-powered categorization, budget alerts, and detailed financial analytics. Includes data visualization and export features.",
-    technologies: [
-      "React",
-      "Local Storage",
-      "Chart.js",
-      "PWA",
-      "Service Workers",
-    ],
+    technologies: ["NextJS", "Supabase", "Chart.js"],
     category: "Frontend",
     status: "Completed",
     featured: false,
-    liveDemo: "#",
-    github: "#",
+    liveDemo: "https://expence-tracker-eta-nine.vercel.app",
+    github: "https://github.com/gauravkathiriya/expence-tracker",
     image: "/api/placeholder/400/250",
   },
   {
@@ -101,8 +88,8 @@ const projects = [
     longDescription:
       "A full-featured auction platform supporting real-time bidding, automated bid increments, user profiles, and secure payment processing. Built with modern web technologies.",
     technologies: [
-      "React",
-      "Node.js",
+      "NextJS",
+      "NestJS",
       "WebSocket",
       "PostgreSQL",
       "Stripe",
@@ -111,8 +98,9 @@ const projects = [
     category: "Full-Stack",
     status: "In Progress",
     featured: true,
-    liveDemo: "#",
-    github: "#",
+    liveDemo: "https://quickbidz.netlify.app/",
+    github:
+      "https://github.com/gauravkathiriya/online-auction-platform-quickbidz",
     image: "/api/placeholder/400/250",
   },
   {
@@ -499,7 +487,7 @@ export default function ProjectsPage() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 text-xs"
+                        className="flex-1 text-xs hover:cursor-pointer"
                       >
                         <ExternalLink className="mr-1 h-3 w-3" />
                         Demo
@@ -507,7 +495,7 @@ export default function ProjectsPage() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 text-xs"
+                        className="flex-1 text-xs hover:cursor-pointer"
                       >
                         <Github className="mr-1 h-3 w-3" />
                         Code

@@ -72,7 +72,7 @@ export function Navigation() {
                 <Link key={item.name} href={item.href}>
                   <Button
                     variant="ghost"
-                    className={`relative px-4 py-2 transition-all duration-200 ${
+                    className={`relative px-4 py-2 hover:cursor-pointer transition-all duration-200 ${
                       pathname === item.href
                         ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold"
                         : "text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
