@@ -1,197 +1,135 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { SimpleThemeToggle } from "@/components/theme-toggle";
-import { Home, User, FolderOpen, Mail, Menu, X, Code2 } from "lucide-react";
+import { navAnchors } from "@/data/profile";
+import {
+  Code2,
+  Menu,
+  X,
+} from "lucide-react";
 
-const navItems = [
-  { name: "Home", href: "/", icon: <Home className="w-4 h-4" /> },
-  { name: "About", href: "/about", icon: <User className="w-4 h-4" /> },
-  {
-    name: "Projects",
-    href: "/projects",
-    icon: <FolderOpen className="w-4 h-4" />,
-  },
-  { name: "Contact", href: "/contact", icon: <Mail className="w-4 h-4" /> },
-];
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function NavInnerLink({
+  id,
+  label,
+  onSelect,
+}: {
+  id: string;
+  label: string;
+  onSelect?: () => void;
+}) {
+  return (
+    <Button
+      variant="ghost"
+      type="button"
+      className="relative px-4 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300"
+      onClick={() => {
+        scrollToId(id);
+        onSelect?.();
+      }}
+    >
+      {label}
+    </Button>
+  );
+}
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+      <motion.header
+        className={`fixed top-1 left-0 right-0 z-50 px-3 transition-all duration-300 md:top-2 md:px-4 ${scrolled
+          ? "md:pt-0"
+          : ""
+          }`}
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.45 }}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"
-              >
-                <Code2 className="w-6 h-6 text-white" />
-              </motion.div>
-              <span className="font-bold text-xl text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
-                Gaurav
-              </span>
-            </Link>
+        <nav
+          className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-3 py-2 transition-all duration-300 md:px-4 ${scrolled
+            ? "border-white/10 bg-slate-950/85 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "border-white/5 bg-slate-950/40 backdrop-blur-md"
+            }`}
+          aria-label="Primary"
+        >
+          <Link
+            href="/#top"
+            className="flex items-center gap-2 rounded-lg outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToId("top");
+            }}
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-violet-600 shadow-[0_0_20px_rgba(34,211,238,0.35)]">
+              <Code2 className="h-5 w-5 text-white" aria-hidden />
+            </span>
+            <span className="font-[family-name:var(--font-space)] text-lg font-bold text-white">
+              GK
+            </span>
+          </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <Button
-                    variant="ghost"
-                    className={`relative px-4 py-2 hover:cursor-pointer transition-all duration-200 ${
-                      pathname === item.href
-                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold"
-                        : "text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      {item.icon}
-                      {item.name}
-                    </span>
-                    {pathname === item.href && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
-                        layoutId="activeTab"
-                        initial={false}
-                        transition={{
-                          type: "spring",
-                          stiffness: 500,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                  </Button>
-                </Link>
-              ))}
-
-              {/* Theme Toggle in Desktop Menu */}
-              <div className="ml-4 pl-4 border-l border-gray-200 dark:border-gray-700">
-                <SimpleThemeToggle />
-              </div>
-            </div>
-
-            {/* Mobile Menu Button and Theme Toggle */}
-            <div className="md:hidden flex items-center gap-2">
-              <SimpleThemeToggle />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-900 dark:text-gray-100"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <AnimatePresence mode="wait">
-                  {isOpen ? (
-                    <motion.div
-                      key="close"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <X className="w-6 h-6" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Menu className="w-6 h-6" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Button>
-            </div>
+          <div className="hidden items-center gap-0.5 md:flex">
+            {navAnchors.map((item) => (
+              <NavInnerLink key={item.id} id={item.id} label={item.label} />
+            ))}
           </div>
-        </div>
-      </motion.nav>
+        </nav>
+      </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isOpen ? (
           <>
-            {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-30 md:hidden"
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
+              aria-hidden
             />
-
-            {/* Mobile Menu Panel */}
             <motion.div
-              className="fixed top-16 left-4 right-4 bg-white dark:bg-slate-900 rounded-lg shadow-xl z-40 md:hidden"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              id="mobile-nav"
+              className="fixed left-3 right-3 top-[4.25rem] z-40 rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-xl backdrop-blur-xl md:hidden"
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
             >
-              <div className="p-4 space-y-2">
-                {navItems.map((item, index) => (
+              <div className="flex flex-col gap-1">
+                {navAnchors.map((item, i) => (
                   <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
+                    key={item.id}
+                    initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: i * 0.04 }}
                   >
-                    <Link href={item.href}>
-                      <Button
-                        variant="ghost"
-                        className={`w-full justify-start text-left transition-all duration-200 ${
-                          pathname === item.href
-                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 font-semibold"
-                            : "text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                        }`}
-                      >
-                        <span className="flex items-center gap-3">
-                          {item.icon}
-                          {item.name}
-                        </span>
-                      </Button>
-                    </Link>
+                    <NavInnerLink
+                      id={item.id}
+                      label={item.label}
+                      onSelect={() => setIsOpen(false)}
+                    />
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           </>
-        )}
+        ) : null}
       </AnimatePresence>
     </>
   );
