@@ -11,7 +11,7 @@ export const profile = {
     "Results-driven Full Stack Developer with hands-on experience building scalable web and mobile applications using React.js, Next.js, NestJS, and React Native. Proven ability to design and consume RESTful and GraphQL APIs, manage relational and NoSQL databases (PostgreSQL, MySQL, MongoDB), and deliver high-performance, accessible user interfaces. Published two open-source npm packages. Strong collaborator with a consistent record of end-to-end feature ownership, code quality, and on-time delivery.",
   social: {
     github: "https://github.com/gauravkathiriya",
-    linkedin: "https://www.linkedin.com/in/gauravkathiriya45",
+    linkedin: "https://www.linkedin.com/in/gaurav-kathiriya-66b1ab267",
     whatsapp: "https://wa.me/919924875063",
   },
   githubUsername: "gauravkathiriya",
@@ -84,7 +84,16 @@ export const experiences = [
       "Develop reusable UI components and integrate third-party APIs to accelerate feature delivery.",
       "Collaborate in agile sprints, conduct code reviews, and maintain CI/CD pipelines via GitLab.",
     ],
-    stack: ["React.js", "NestJS", "GraphQL", "REST", "PostgreSQL", "TypeORM", "Prisma", "GitLab CI"],
+    stack: [
+      "React.js",
+      "NestJS",
+      "GraphQL",
+      "REST",
+      "PostgreSQL",
+      "TypeORM",
+      "Prisma",
+      "GitLab CI",
+    ],
   },
   {
     id: "prodigy",
