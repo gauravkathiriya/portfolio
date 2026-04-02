@@ -1,5 +1,3 @@
-/** CV-derived profile content — update `social.linkedin` if your public URL differs. */
-
 export const profile = {
   name: "Gaurav Kathiriya",
   role: "Full Stack Developer",
@@ -59,7 +57,6 @@ export const skillCategories = [
   },
 ] as const;
 
-/** Tech labels for optional 3D orbit */
 export const skillOrbitLabels = [
   "React",
   "Next.js",

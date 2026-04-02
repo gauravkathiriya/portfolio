@@ -5,11 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { navAnchors } from "@/data/profile";
-import {
-  Code2,
-  Menu,
-  X,
-} from "lucide-react";
+import { Code2 } from "lucide-react";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
