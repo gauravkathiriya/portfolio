@@ -46,7 +46,9 @@ export const metadata: Metadata = {
     "TypeScript",
     "Gujarat",
   ],
-  authors: [{ name: "Gaurav Kathiriya", url: "https://github.com/gauravkathiriya" }],
+  authors: [
+    { name: "Gaurav Kathiriya", url: "https://github.com/gauravkathiriya" },
+  ],
   creator: "Gaurav Kathiriya",
   openGraph: {
     title: "Gaurav Kathiriya · Full Stack Developer",

@@ -3,7 +3,14 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown, MapPin } from "lucide-react";
+import {
+  Github,
+  Gitlab,
+  Linkedin,
+  Mail,
+  ArrowDown,
+  MapPin,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 import { Badge } from "@/components/ui/badge";
@@ -124,6 +131,15 @@ export function HeroSection() {
               GitHub
             </a>
             <a
+              href={profile.social.gitlab}
+              className="flex items-center gap-2 text-slate-300 underline-offset-4 hover:text-cyan-300 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Gitlab className="h-4 w-4" aria-hidden />
+              GitLab
+            </a>
+            <a
               href={profile.social.linkedin}
               className="flex items-center gap-2 text-slate-300 underline-offset-4 hover:text-cyan-300 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
               target="_blank"
@@ -149,7 +165,10 @@ export function HeroSection() {
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-xs text-slate-500 hover:text-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 6, 0] }}
-        transition={{ opacity: { delay: 0.8 }, y: { repeat: Infinity, duration: 2.2 } }}
+        transition={{
+          opacity: { delay: 0.8 },
+          y: { repeat: Infinity, duration: 2.2 },
+        }}
         aria-label="Scroll to about section"
       >
         <span className="uppercase tracking-widest">Explore</span>

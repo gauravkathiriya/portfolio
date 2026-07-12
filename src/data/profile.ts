@@ -2,17 +2,19 @@ export const profile = {
   name: "Gaurav Kathiriya",
   role: "Full Stack Developer",
   tagline: "React.js · Next.js · NestJS · React Native",
-  location: "Gujarat, India",
+  location: "Surat, Gujarat, India",
   email: "gauravkathiriya45@gmail.com",
   phone: "+91 9924875063",
   summary:
     "Results-driven Full Stack Developer with hands-on experience building scalable web and mobile applications using React.js, Next.js, NestJS, and React Native. Proven ability to design and consume RESTful and GraphQL APIs, manage relational and NoSQL databases (PostgreSQL, MySQL, MongoDB), and deliver high-performance, accessible user interfaces. Published two open-source npm packages. Strong collaborator with a consistent record of end-to-end feature ownership, code quality, and on-time delivery.",
   social: {
     github: "https://github.com/gauravkathiriya",
+    gitlab: "https://gitlab.com/gauravkathiriya",
     linkedin: "https://www.linkedin.com/in/gaurav-kathiriya-66b1ab267",
     whatsapp: "https://wa.me/919924875063",
   },
   githubUsername: "gauravkathiriya",
+  gitlabUsername: "gauravkathiriya",
 } as const;
 
 export const skillCategories = [
@@ -127,7 +129,7 @@ export const projects = [
     liveUrl: "https://moneyutility.in",
     secondaryUrl: {
       label: "Admin panel",
-      href: "https://moneyutility-admin-panel.vercel.app",
+      href: "https://admin.moneyutility.in",
     },
     githubUrl: null as string | null,
     featured: true,

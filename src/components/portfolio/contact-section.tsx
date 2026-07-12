@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import Link from "next/link";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Github, Gitlab, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { profile } from "@/data/profile";
 import { Button } from "@/components/ui/button";
 import {
@@ -123,6 +123,21 @@ export function ContactSection() {
                 >
                   <Github className="h-4 w-4" aria-hidden />
                   GitHub
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10"
+              >
+                <Link
+                  href={profile.social.gitlab}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gap-2"
+                >
+                  <Gitlab className="h-4 w-4" aria-hidden />
+                  GitLab
                 </Link>
               </Button>
               <Button
